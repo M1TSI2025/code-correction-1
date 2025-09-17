@@ -12,7 +12,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y g++
 
       # Télécharger Catch2 (header-only, pas besoin de compilation)
-      - run: wget https://github.com/catchorg/Catch2/releases/download/v3.3.2/catch.hpp
+      - run: wget https://raw.githubusercontent.com/eecs280staff/unit_test_framework/main/unit_test_framework.hpp
 
       # Compiler et exécuter les tests
-      - run: g++ -std=c++11 main.cpp test.cpp -o test && ./test
+      - run: g++ -std=c++11 test.cpp -o test && ./test
