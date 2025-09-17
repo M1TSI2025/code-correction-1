@@ -1,0 +1,18 @@
+name: Code Correction 1 Testing
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Installer les dépendances (g++, Catch2)
+      - run: sudo apt-get update && sudo apt-get install -y g++
+
+      # Télécharger Catch2 (header-only, pas besoin de compilation)
+      - run: wget https://github.com/catchorg/Catch2/releases/download/v3.3.2/catch.hpp
+
+      # Compiler et exécuter les tests
+      - run: g++ -std=c++11 main.cpp test.cpp -o test && ./test
